@@ -1,0 +1,166 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{xfrac}
+\usepackage{eufrak}
+\usepackage{quoting, xparse}
+\usepackage{indentfirst}
+\usepackage{tikz}
+\usetikzlibrary{positioning, fit, calc, arrows,shapes.gates.logic.US,shapes.gates.logic.IEC,}
+
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in} 
+
+\NewDocumentCommand{\bywhom}{m}{% the Bourbaki trick
+  {\nobreak\hfill\penalty50\hskip1em\null\nobreak
+   \hfill\mbox{\normalfont(#1)}%
+   \parfillskip=0pt \finalhyphendemerits=0 \par}%
+}
+
+\NewDocumentEnvironment{pquotation}{m}
+  {\begin{quoting}[
+     indentfirst=true,
+     leftmargin=\parindent,
+     rightmargin=\parindent]\itshape}
+  {\bywhom{#1}\end{quoting}}
+
+
+\begin{document}
+
+\begin{titlepage}
+   \begin{center}
+
+
+       \huge{\textbf{ECE 110/120 Honors Lab}}
+
+       \vspace{0.5cm}
+        \Large{Fall 2022}\\
+        \normalsize{Lab \# Report}
+            
+       \vfill
+
+       \Huge{\textbf{Sample Project Proposal}}
+	\vspace{2mm}
+
+       \Large{\textbf{Alternate Title: How to write your proposal}}
+
+       \vfill
+        
+       \normalsize{Group Names}\\
+       
+            
+   \end{center}
+\end{titlepage}
+
+\section{Introduction}
+
+Introduce your project. What is it? Why did you decide to pursue this project? It doesn't need to be a complex reason - you could be pursuing a project idea because you thought it was funny, or because it's something that you are deeply passionate about. Some introductory statements from past proposals are included below:
+
+\begin{pquotation}{Marrisa Lanz, Maya Moy, Spring 22}
+Our project is to build a model of an elevator with touchless buttons and to build an efficient path finding algorithm for the elevator. We both have the shared experience of THE Busey-Evans Hall elevator. The combination of long wait times, ineffective and sometimes sticky buttons made for a sub-par elevator riding experience. This left both of us with a curiosity for how this experience could be improved. 
+\end{pquotation}
+
+\vspace{3mm}
+
+\begin{pquotation}{Yingtong Hu, Yuheng Chang, Fall 2018}
+ During the cold winter day, you hands will definitely be the coldest thing of your body, When you put your hand in your pockets and it's warm. God! That's heaven. This project is aiming to create this heaven.
+\end{pquotation}
+
+\vspace{3mm}
+
+\begin{pquotation}{Alex Jansen, Dhilan Desai, Spring 2022}
+A small houseplant pot that monitors soil moisture, sunlight, temperature, and humidity and uses that information to automatically add water and provide health alerts. The primary goal is to create a self-contained plant monitoring system that keeps the plant hydrated and alerts the owner if conditions potentially damaging to the plant's health are detected. This project should save the user time and headspace and assist those cursed with brown thumbs in keeping care of the plant. 
+\end{pquotation}
+
+As you can see, the average introductory statement is just a few short sentences. 
+
+\subsection{Background Research}
+
+One of the most important components to any project proposal is your background research. You have already introduced your idea above, and now you are tasked with explaining the details behind your project. 
+
+\vspace{5mm}
+
+When researching your project, ask yourself the following questions:
+
+\begin{itemize}
+
+\item 
+$\textbf{How can we subdivide our project into smaller pieces?}$ Dividing your overall large task to focus on being accomplish smaller tasks instead of larger tasks - also known as the $\textit{top-down approach}$ - is a very helpful tool for making your project more manageable to complete. Once you've completed this division, you can focus more on individual parts that may require more attention than other pieces of your project.
+
+
+\item $\textbf{What motivates our project?}$ In other words, what existing technology is your project based off? How does that technology work? How can we apply that knowledge to our current project? Knowing more about not just your project, but the area of engineering in which your project resides, is a great way to make sure you can surmount any issues you might face during your project.
+
+\item $\textbf{What would someone else need to know to replicate our project?}$ Online sources can often provide $\textit{too much}$ information, and you might find it tempting to just summarize large blobs of information from the internet. Don't. Keep your background information concise, but don't skip out on too many details either. A good rule of thumb is if you had any friends in a different engineering discipline, such as mechanical or chemical engineering, could they read this section and be able to understand the principles on which your project is based on? 
+\end{itemize}
+
+\newpage
+
+\subsection{Flowcharts and Diagrams}
+
+Having graphical aids is not just important for us to understand your project - it's important for $\textit{you}$ to understand your own project. System flowcharts/block diagrams describe how project operates on a high level. How do different components interact with each other? Where might components be located relative to each other? How does your code work?
+
+\vspace{5mm}
+
+Some simpler examples are shown below:
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\linewidth]{facerecog.png}
+\caption*{Facial Recognition Door Lock, Fall 2020}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\linewidth]{microcontrol.png}
+\caption*{Microcontroller Calculator, Spring 2021}
+\end{figure}
+
+As you can see, block diagrams don't have to be super-detailed, nor do they have to be super-complicated. They exist to only give a guide of how you might put together your project. Of course, you should also describe each one of the blocks - and their connections - in text. 
+
+\newpage
+
+\subsection{Optional - Timeline}
+
+A good idea to include in your proposal is an estimated timeline - how much progress do you expect to make each week? What are some deadlines that you have set for yourself. Including a timeline in your report allows us to also check in with your group more effectively - we can get an estimate for where you should be at a point in time, and give pointers or advice for how to catch up if you're behind, or what to do if you're ahead.
+
+\vspace{5mm}
+
+As mentioned, this is optional, unlike the other components of this report, but is a very good idea to add nonetheless.
+
+\subsection{Parts List}
+
+$\textbf{As mentioned in the Discord, this is not a parts ordering form!}$. Rather, we require this inside your proposal to get an idea of what parts you might order so that we can offer cheaper alternatives, and to also make sure you're not going to waste money buying parts that won't work or won't arrive. Remember, you're on a budget!
+
+\vspace{5mm}
+
+It is best to organize your parts order in the following format:
+
+\begin{center}
+\begin{tabular}{ c | c | c }
+\hline
+ Part 1 - Name, Details, Type & Link to Part & Price \\ 
+\hline
+ Part 2 - Name, Details, Type  & Link to Part & Price \\  
+\hline
+ Part 3 - Name, Details, Type  & Link to Part & Price \\  
+\hline 
+\vdots & \vdots & \vdots 
+\end{tabular}
+\end{center}
+
+Most if not all of your parts should be sourced from the following websites: Digikey, McMaster-Carr, Adafruit, Sparkfun, and ACE Hardware. Exceptions may be granted for specific parts $\textbf{on a case-by-case basis}$. We cannot order from Amazon, eBay, Alibaba, or Walmart, so do not attempt to get an exemption for those - any proposal with those four on their parts list will be auto-rejected.
+
+
+
+\end{document}
