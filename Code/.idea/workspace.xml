@@ -1,9 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="32ec203c-8e01-4b06-a9bd-666f75e5d292" name="Changes" comment="initial code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hand landmark.py" beforeDir="false" afterPath="$PROJECT_DIR$/hand landmark.py" afterDir="false" />
+=======
+    <list default="true" id="32ec203c-8e01-4b06-a9bd-666f75e5d292" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Code.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hand landmark.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hand tracking.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ECE 110 120 honors lab code.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ECE 110 120 honors lab code/FileContentIndex/f75b58e7-441e-4fdc-a7b6-f9aad259ed06.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ECE 110 120 honors lab code/FileContentIndex/read.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ECE 110 120 honors lab code/hand landmark module.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ECE 110 120 honors lab code/hand tracking module.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ECE 110 120 honors lab code/landmark distance.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ECE 110 120 honors lab code/v17/.suo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/PythonSettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/VSWorkspaceState.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/slnx.sqlite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flowchart.drawio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+>>>>>>> 9995d834180b6df54ed318554746a7b0fd134d18
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1664495993082</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00001" summary="initial code">
       <created>1664755100853</created>
       <option name="number" value="00001" />
@@ -54,6 +78,8 @@
       <updated>1664755100853</updated>
     </task>
     <option name="localTasksCounter" value="2" />
+=======
+>>>>>>> 9995d834180b6df54ed318554746a7b0fd134d18
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -67,8 +93,11 @@
       </map>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial code" />
     <option name="LAST_COMMIT_MESSAGE" value="initial code" />
   </component>
+=======
+>>>>>>> 9995d834180b6df54ed318554746a7b0fd134d18
 </project>
