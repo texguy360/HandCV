@@ -12,7 +12,7 @@ class handDetector():
         self.model_complexity = model_complexity
 
         self.mpHands = mp.solutions.hands
-        self.hands = self.mpHands.Hands(self.mode, self.maxHands, self.detectionCon, self.trackCon)
+        self.hands = self.mpHands.Hands(self.mode, self.maxHands, self.model_complexity, self.detectionCon, self.trackCon)
         self.mpDraw = mp.solutions.drawing_utils
 
     def findHands(self, img, draw=True):
@@ -34,8 +34,8 @@ class handDetector():
                 cx = int(lm.x * w)
                 cy = int(lm.y * h)
                 lmlist.append([id, cx, cy])
-                if draw:
-                    cv2.circle(img, (cx, cy), 7, (255, 0, 255), cv2.FILLED)
+                #if draw:
+                #    cv2.circle(img, (cx, cy), 7, (255, 0, 255), cv2.FILLED)
         return lmlist
 
 def main():
@@ -45,7 +45,7 @@ def main():
     while True:
         success, img = cap.read()
         img = detector.findHands(img)
-        lmlist = detector.findPosition()
+        lmlist = detector.findPosition(img)
         if len(lmlist) != 0:
             print(lmlist[4])
 
