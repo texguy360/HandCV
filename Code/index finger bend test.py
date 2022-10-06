@@ -15,6 +15,8 @@ class handDetector():
         self.hands = self.mpHands.Hands(self.mode, self.maxHands, self.model_complexity, self.detectionCon,
                                         self.trackCon)
         self.mpDraw = mp.solutions.drawing_utils
+        #self.pow = math.pow
+        #self.sqrt = math.sqrt
 
     def findHands(self, img, draw=True):
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -37,14 +39,12 @@ class handDetector():
                 lmlist.append([id, cx, cy])
         return lmlist
 
-    def indexFinger(self, lmlist):
-        while True:
-            index_base05: float = math.sqrt(
-                math.pow(int(lmlist[5][1]) - int(lmlist[0][1]), 2) + math.pow(int(lmlist[5][2]) - int(lmlist[0][2]), 2))
-            index_tip85: float = math.sqrt(
-                math.pow(int(lmlist[8][1]) - int(lmlist[5][1]), 2) + math.pow(int(lmlist[8][2]) - int(lmlist[5][2]), 2))
-            index_bend = index_tip85/index_base05
-        return index_bend
+    #def indexFinger(self, lmlist):
+        #while True:
+            #index_base05 = self.sqrt(self.pow(lmlist[5][1] - lmlist[0][1], 2) + self.pow(lmlist[5][2] - lmlist[0][2], 2))
+            #index_tip85 = self.sqrt(self.pow(lmlist[8][1] - lmlist[5][1], 2) + self.pow(lmlist[8][2] - lmlist[5][2], 2))
+            #index_bend = int(index_tip85)/int(index_base05)
+        #return index_bend
 
 
 def main():
@@ -55,8 +55,12 @@ def main():
         success, img = cap.read()
         img = detector.findHands(img)
         lmlist = detector.findPosition(img)
-        index_bend = detector.indexFinger(lmlist)
+        #index_bend = detector.indexFinger(lmlist)
         if len(lmlist) != 0:
+            index_base05 = math.sqrt(
+                math.pow(lmlist[5][1] - lmlist[0][1], 2) + math.pow(lmlist[5][2] - lmlist[0][2], 2))
+            index_tip85 = math.sqrt(math.pow(lmlist[8][1] - lmlist[5][1], 2) + math.pow(lmlist[8][2] - lmlist[5][2], 2))
+            index_bend = index_tip85/index_base05
             print(index_bend)
 
         cv2.imshow("Image", img)
