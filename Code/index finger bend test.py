@@ -1,5 +1,6 @@
 import cv2
 import mediapipe as mp
+import math
 
 
 class handDetector():
@@ -36,6 +37,16 @@ class handDetector():
                 lmlist.append([id, cx, cy])
         return lmlist
 
+    def indexFinger(self, lmlist):
+        while True:
+            index_base05: float = math.sqrt(
+                math.pow(int(lmlist[5][1]) - int(lmlist[0][1]), 2) + math.pow(int(lmlist[5][2]) - int(lmlist[0][2]), 2))
+            index_tip85: float = math.sqrt(
+                math.pow(int(lmlist[8][1]) - int(lmlist[5][1]), 2) + math.pow(int(lmlist[8][2]) - int(lmlist[5][2]), 2))
+            index_bend = index_tip85/index_base05
+        return index_bend
+
+
 def main():
     cap = cv2.VideoCapture(0)
     detector = handDetector()
@@ -44,11 +55,13 @@ def main():
         success, img = cap.read()
         img = detector.findHands(img)
         lmlist = detector.findPosition(img)
+        index_bend = detector.indexFinger(lmlist)
         if len(lmlist) != 0:
-            print(lmlist[8])
+            print(index_bend)
 
         cv2.imshow("Image", img)
         cv2.waitKey(1)
+
 
 if __name__ == '__main__':
     main()
