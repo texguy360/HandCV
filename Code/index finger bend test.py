@@ -86,7 +86,19 @@ def main():
                 math.pow(lmlist[20][1] - lmlist[17][1], 2) + math.pow(lmlist[20][2] - lmlist[17][2], 2))
             small_bend = small_tip20_17/small_base0_17
 
-            print(index_bend, middle_bend, ring_bend, small_bend)
+            thumb_base1_0 = math.sqrt(
+                math.pow(lmlist[2][1] - lmlist[0][1], 2) + math.pow(lmlist[2][2] - lmlist[0][2], 2))
+            thumb_mid4_17 = math.sqrt(
+                math.pow(lmlist[4][1] - lmlist[17][1], 2) + math.pow(lmlist[4][2] - lmlist[17][2], 2))
+            thumb_rotate = thumb_mid4_17/thumb_base1_0
+
+            thumb_tip4_2 = math.sqrt(
+                math.pow(lmlist[4][1] - lmlist[2][1], 2) + math.pow(lmlist[4][2] - lmlist[2][2], 2))
+            thumb_base3_2 = math.sqrt(
+                math.pow(lmlist[3][1] - lmlist[2][1], 2) + math.pow(lmlist[3][2] - lmlist[2][2], 2))
+            thumb_bend = thumb_tip4_2/thumb_base3_2 #1.67
+
+            print(index_bend, ring_bend, middle_bend, small_bend, thumb_bend, thumb_rotate)
 
         cv2.imshow("Image", img)
         cv2.waitKey(1)
