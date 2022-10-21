@@ -59,32 +59,25 @@ def main():
         if len(lmlist) != 0:
             index_base0_5 = math.sqrt(
                 math.pow(lmlist[5][1] - lmlist[0][1], 2) + math.pow(lmlist[5][2] - lmlist[0][2], 2))
-            index_tip8_5 = math.sqrt(math.pow(lmlist[8][1] - lmlist[5][1], 2) + math.pow(lmlist[8][2] - lmlist[5][2], 2))
-            index_bend = index_tip8_5/index_base0_5
-            #if index_bend < 0.7:
-            #    index = 1
-            #    if index_bend < 0.3:
-            #        index = 2
-            #else:
-            #    index = 0
-
+            index_tip8_0 = math.sqrt(math.pow(lmlist[8][1] - lmlist[0][1], 2) + math.pow(lmlist[8][2] - lmlist[0][2], 2))
+            index_bend = index_tip8_0/index_base0_5
 
             middle_base0_9 = math.sqrt(
                 math.pow(lmlist[9][1] - lmlist[0][1], 2) + math.pow(lmlist[9][2] - lmlist[0][2], 2))
-            middle_tip12_9 = math.sqrt(math.pow(lmlist[12][1] - lmlist[9][1], 2) + math.pow(lmlist[12][2] - lmlist[9][2], 2))
-            middle_bend = middle_tip12_9/middle_base0_9
+            middle_tip12_0 = math.sqrt(math.pow(lmlist[12][1] - lmlist[0][1], 2) + math.pow(lmlist[12][2] - lmlist[0][2], 2))
+            middle_bend = middle_tip12_0/middle_base0_9
 
             ring_base0_13 = math.sqrt(
                 math.pow(lmlist[13][1] - lmlist[0][1], 2) + math.pow(lmlist[13][2] - lmlist[0][2], 2))
-            ring_tip16_13 = math.sqrt(
-                math.pow(lmlist[16][1] - lmlist[13][1], 2) + math.pow(lmlist[16][2] - lmlist[13][2], 2))
-            ring_bend = ring_tip16_13/ring_base0_13
+            ring_tip16_0 = math.sqrt(
+                math.pow(lmlist[16][1] - lmlist[0][1], 2) + math.pow(lmlist[16][2] - lmlist[0][2], 2))
+            ring_bend = ring_tip16_0/ring_base0_13
 
             small_base0_17 = math.sqrt(
                 math.pow(lmlist[17][1] - lmlist[0][1], 2) + math.pow(lmlist[17][2] - lmlist[0][2], 2))
-            small_tip20_17 = math.sqrt(
-                math.pow(lmlist[20][1] - lmlist[17][1], 2) + math.pow(lmlist[20][2] - lmlist[17][2], 2))
-            small_bend = small_tip20_17/small_base0_17
+            small_tip20_0 = math.sqrt(
+                math.pow(lmlist[20][1] - lmlist[0][1], 2) + math.pow(lmlist[20][2] - lmlist[0][2], 2))
+            small_bend = small_tip20_0/small_base0_17
 
             thumb_base1_0 = math.sqrt(
                 math.pow(lmlist[2][1] - lmlist[0][1], 2) + math.pow(lmlist[2][2] - lmlist[0][2], 2))
@@ -98,7 +91,8 @@ def main():
                 math.pow(lmlist[3][1] - lmlist[2][1], 2) + math.pow(lmlist[3][2] - lmlist[2][2], 2))
             thumb_bend = thumb_tip4_2/thumb_base3_2 #1.67
 
-            print(index_bend, ring_bend, middle_bend, small_bend, thumb_bend, thumb_rotate)
+            print(index_bend, middle_bend, ring_bend, small_bend, thumb_rotate, thumb_bend)
+
 
         cv2.imshow("Image", img)
         cv2.waitKey(1)
