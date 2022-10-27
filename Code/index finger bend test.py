@@ -39,12 +39,12 @@ class handDetector():
                 lmlist.append([id, cx, cy])
         return lmlist
 
-    #def indexFinger(self, lmlist):
-        #while True:
-            #index_base05 = self.sqrt(self.pow(lmlist[5][1] - lmlist[0][1], 2) + self.pow(lmlist[5][2] - lmlist[0][2], 2))
-            #index_tip85 = self.sqrt(self.pow(lmlist[8][1] - lmlist[5][1], 2) + self.pow(lmlist[8][2] - lmlist[5][2], 2))
-            #index_bend = int(index_tip85)/int(index_base05)
-        #return index_bend
+    def indexFinger(self, lmlist):
+        while True:
+            index_base05 = self.sqrt(self.pow(lmlist[5][1] - lmlist[0][1], 2) + self.pow(lmlist[5][2] - lmlist[0][2], 2))
+            index_tip85 = self.sqrt(self.pow(lmlist[8][1] - lmlist[5][1], 2) + self.pow(lmlist[8][2] - lmlist[5][2], 2))
+            index_bend = int(index_tip85)/int(index_base05)
+        return index_bend
 
 
 def main():
@@ -61,11 +61,13 @@ def main():
                 math.pow(lmlist[5][1] - lmlist[0][1], 2) + math.pow(lmlist[5][2] - lmlist[0][2], 2))
             index_tip8_0 = math.sqrt(math.pow(lmlist[8][1] - lmlist[0][1], 2) + math.pow(lmlist[8][2] - lmlist[0][2], 2))
             index_bend = index_tip8_0/index_base0_5
-
-            if index_bend < 1.7:
+            if index_bend > 1.7:
+                index = 0
+            elif 1 < index_bend < 1.7:
                 index = 1
             elif index_bend < 1:
                 index = 2
+            print(index)
 
 
 
