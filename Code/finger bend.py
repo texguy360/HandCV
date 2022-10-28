@@ -18,7 +18,6 @@ class Detector:
         self.results = None
 
     def find_hands(self, img, draw=True):
-        # imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         self.results = self.hands.process(img)
 
         if self.results.multi_hand_landmarks:
@@ -85,7 +84,15 @@ def main():
                 math.pow(lmlist[3][1] - lmlist[2][1], 2) + math.pow(lmlist[3][2] - lmlist[2][2], 2))
             thumb_bend = thumb_tip4_2/thumb_base3_2
 
-            print(index_bend, middle_bend, ring_bend, small_bend, thumb_bend, thumb_rotate)
+            hand_rotate = (math.sqrt(
+                math.pow(lmlist[5][1] - lmlist[2][1], 2) + math.pow(lmlist[5][2] - lmlist[2][2], 2)))/(math.sqrt(
+                math.pow(lmlist[5][1] - lmlist[17][1], 2) + math.pow(lmlist[5][2] - lmlist[17][2], 2)))
+
+            hand_bend = (math.sqrt(
+                math.pow(lmlist[17][1] - lmlist[0][1], 2) + math.pow(lmlist[17][2] - lmlist[0][2], 2)))/(math.sqrt(
+                math.pow(lmlist[5][1] - lmlist[2][1], 2) + math.pow(lmlist[5][2] - lmlist[2][2], 2)))
+
+            print(hand_rotate)
 
         cv2.imshow("Image", img)
         cv2.waitKey(1)
