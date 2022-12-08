@@ -1,6 +1,6 @@
 import cv2
 import mediapipe as mp
-import math
+import numpy as np
 
 
 class Detector:
@@ -26,16 +26,43 @@ class Detector:
                     self.mpDraw.draw_landmarks(img, handLms, self.mpHands.HAND_CONNECTIONS)
         return img
 
-    def find_position(self, img, hand_number=0):
-        lmlist = []
+    def index_vector(self, img):
+        list_x = []
+        index_vector = []
         if self.results.multi_hand_landmarks:
-            hand = self.results.multi_hand_landmarks[hand_number]
+            hand = self.results.multi_hand_landmarks[0]
             for id, lm in enumerate(hand.landmark):
-                h, w, c = img.shape
-                cx = int(lm.x * w)
-                cy = int(lm.y * h)
-                lmlist.append([id, cx, cy])
-        return lmlist
+                # list_x.append(lm.x)
+                if id == 0 or id == 5 or id == 6 or id == 7 or id == 8:
+                    index_vector.append(lm.x)
+                    index_vector.append(lm.y)
+        return index_vector
+
+    # def index_x(self, list_x):
+    #     index_x = [list_x[0], list_x[5], list_x[6], list_x[7], list_x[8]]
+    #     return index_x
+
+    # def find_y(self, img):
+    #     # list_y = []
+    #     index_y = []
+    #     if self.results.multi_hand_landmarks:
+    #         hand = self.results.multi_hand_landmarks[0]
+    #         for id, lm in enumerate(hand.landmark):
+    #             # list_y.append(lm.y)
+    #             if id == 0 or id == 5 or id == 6 or id == 7 or id == 8:
+    #                 index_y.append(lm.x)
+    #     return index_y
+
+    # def find_position(self, img, hand_number=0):
+    #     lmlist = []
+    #     if self.results.multi_hand_landmarks:
+    #         hand = self.results.multi_hand_landmarks[hand_number]
+    #         for id, lm in enumerate(hand.landmark):
+    #             h, w, c = img.shape
+    #             cx = int(lm.x * w)
+    #             cy = int(lm.y * h)
+    #             lmlist.append([id, cx, cy])
+    #     return lmlist
 
 
 
@@ -47,21 +74,28 @@ def main():
     while True:
         success, img = cap.read()
         img = detector.find_hands(img)
-        lmlist = detector.find_position(img)
+        # list_x = detector.find_x(img)
+        # list_y = detector.find_y(img)
+        index = detector.index_vector(img)
+        # lmlist = detector.find_position(img)
 
-        if len(lmlist) != 0:
-            index_base0_5 = math.sqrt(
-                math.pow(lmlist[5][1] - lmlist[0][1], 2) + math.pow(lmlist[5][2] - lmlist[0][2], 2))
-            index_tip8_0 = math.sqrt(
-                math.pow(lmlist[8][1] - lmlist[0][1], 2) + math.pow(lmlist[8][2] - lmlist[0][2], 2))
-            index_bend = index_tip8_0 / index_base0_5
-            if index_bend > 1.7:
-                index = 0
-            elif 1 < index_bend < 1.7:
-                index = 1
-            elif index_bend < 1:
-                index = 2
-            print(index)
+        if len(index) != 0:
+            print(index, ', ')
+
+        # if len(lmlist) != 0:
+        #     vector = [lmlist[8][1] - lmlist[5][1], lmlist[8][2] - lmlist[5][2]]
+            # vi76 = [lmlist[7][1] - lmlist[6][1], lmlist[7][2] - lmlist[6][2]]
+            # vi50 = [lmlist[5][1] - lmlist[0][1], lmlist[5][2] - lmlist[0][2]]
+            # d1 = np.dot(vi87, vi50)
+            # d2 = np.dot(vi76, vi50)
+            # print(vector)
+            # if d2 < 0:
+            #     print(2)
+            # elif d1 < 0:
+            #     print(1)
+            # else:
+            #     print(0)
+
 
         cv2.imshow("Image", img)
         cv2.waitKey(1)

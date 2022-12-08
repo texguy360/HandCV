@@ -15,6 +15,8 @@ class handDetector():
                                         self.trackCon)
         self.mpDraw = mp.solutions.drawing_utils
 
+        self.results = None
+
     def findHands(self, img, draw=True):
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         self.results = self.hands.process(imgRGB)

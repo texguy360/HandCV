@@ -92,7 +92,7 @@ def main():
                 math.pow(lmlist[17][1] - lmlist[0][1], 2) + math.pow(lmlist[17][2] - lmlist[0][2], 2)))/(math.sqrt(
                 math.pow(lmlist[5][1] - lmlist[2][1], 2) + math.pow(lmlist[5][2] - lmlist[2][2], 2)))
 
-            print(hand_rotate)
+            print(index_bend, middle_bend, ring_bend, small_bend, thumb_bend, thumb_rotate)
 
         cv2.imshow("Image", img)
         cv2.waitKey(1)
